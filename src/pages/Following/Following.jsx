@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
 import { HiOutlineOfficeBuilding } from "react-icons/hi";
 import { GoLocation } from "react-icons/go";
+import { UserCreateContext } from "../../context/UserContext";
 
 const Following = ({following}) => {
+  const {user} = useContext(UserCreateContext);
 
   console.log(following);
   return (
@@ -13,8 +15,8 @@ const Following = ({following}) => {
         <div className="d-flex justify-content-between">
           {/* <img className="mx-3" src={follow.avatar_url} alt="" width={50} height={50} /> */}
           <div>
-            <a className="nav-link text-secondary fw-normal fs-6" href="#">
-              Davronbek Latibjonov &nbsp; <span className="text__sm">Davronbek2000</span>
+            <a className="nav-link text-secondary fw-normal fs-6" href={follow.url}>
+              {follow.login} &nbsp; <span className="text__sm">{follow.login}</span>
             </a>
             <p className="text__sm--12 mb-0 text-muted mt-1">Updated yesterday</p>
             <p className="text__sm--12 mb-0 text-muted mt-2">
