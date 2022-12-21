@@ -7,27 +7,30 @@ import { GoPlusSmall } from "react-icons/go";
 import "./style.scss";
 import { UserCreateContext } from "../../context/UserContext";
 import API from "../../API/API";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [value, setValue] = useState("");
+  const navigate = useNavigate()
 
-  const {searchVal, setSearchVal, user, setUser, setLoading } = useContext(UserCreateContext);
+  const {searchVal, user, setLoading,users,setUsers, } = useContext(UserCreateContext);
 
   const fetchUser = (e) => {
     if (e.keyCode === 13) {
       setLoading(true);
       API.getSearchUser(value)
         .then((response) => {
-          setUser(response.data.items);
+          setUsers(response.data.items);
           console.log(response.data);
           // setUser(response.data);
         })
         .catch((error) => console.log(error))
         .finally(() => setLoading(false));
+
+        navigate("/userlist")
     }
   };
-  // console.log(user);
-  const data = ["Java", "JavaScript", "React js", "Python", "C", "C++"];
+
 
 
   return (
@@ -60,14 +63,8 @@ const Navbar = () => {
               value={value}
               onChange={(e) => setValue(e.target.value)}
               onKeyDown={fetchUser}
-              list="data"
               // onChange={(e) => setSearchVal(e.target.value)}
             />
-            <datalist id="data">
-              {data.map((op, ind) => (
-                <option key={ind}>{op}</option>
-              ))}
-            </datalist>
             <span className="input-group-text border border-secondary bg-dark text-secondary">/</span>
           </div>
 

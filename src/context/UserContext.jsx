@@ -7,9 +7,10 @@ const UserProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [repo, setRepo] = useState([])
   const [following, setFollowing] = useState([])
-  console.log(following);
+  const [users,setUsers] = useState([])
+  console.log(users);
 
-  return <UserCreateContext.Provider value={{ repo, setRepo, user, setUser, loading, setLoading, following, setFollowing}}>{children}</UserCreateContext.Provider>;
+  return <UserCreateContext.Provider value={{users,setUsers, repo, setRepo, user, setUser, loading, setLoading, following, setFollowing}}>{children}</UserCreateContext.Provider>;
 };
 
 export default UserProvider;

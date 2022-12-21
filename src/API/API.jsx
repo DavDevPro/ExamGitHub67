@@ -11,11 +11,5 @@ const API = {
   getFollowers: async (userName) => axios.get(`${baseURL + userName}/followers`),
   getFollowing: async (userName) => axios.get(`${baseURL + userName}/following`),
 };
-// useEffect(() => {
-//   axios
-//     .get("https://api.github.com/users/Davronbek2000")
-//     .then((response) => console.log(response))
-//     .catch((error) => console.log(error));
-// }, []);
 
 export default API;

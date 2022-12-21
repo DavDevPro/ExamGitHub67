@@ -14,9 +14,10 @@ import API from "./API/API";
 import { UserCreateContext } from "./context/UserContext";
 // import { ReposContext } from "./context/ReposContext";
 import glass from "./assets/images/Dual Ring-1s-200px.png";
+import UserList from "./components/userlist/UserList";
 
 const App = () => {
-  const { repo, setRepo, user, setUser, loading, setLoading, following,setFollowing } = useContext(UserCreateContext);
+  const { repo, setRepo, user, setUser, loading, setLoading, following,setFollowing,users } = useContext(UserCreateContext);
   // const { repos, setRepos } = useContext(ReposContext);
   const username = "mukhriddin-dev";
   useEffect(() => {
@@ -39,10 +40,8 @@ const App = () => {
     API.getFollowing(user.login)
       .then((response) => {
         setFollowing(response.data)
-        console.log(response.data);
       })
       .catch((error) => console.log(error));
-      console.log(user.login);
 
   }, [user]);
 
@@ -72,6 +71,7 @@ const App = () => {
                   <Route path="/stars" element={<Stars />} />
                   <Route path="/followers" element={<Followers />} />
                   <Route path="/following" element={<Following following={following} />} />
+                  <Route path="/userlist" element={<UserList users={users} />} />
                 </Routes>
               </div>
             </div>
