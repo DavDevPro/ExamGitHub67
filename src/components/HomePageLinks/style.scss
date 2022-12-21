@@ -1,0 +1,22 @@
+.home__page--menu {
+  & .nav-link {
+    margin: 0 4px;
+    color: #555;
+    font-weight: 500;
+    padding: 4px 6px;
+    border-radius: 7px;
+    &:active {
+      color: darken($color: #555, $amount: 100);
+    }
+    &:hover {
+      background-color: #f1f1f1;
+    }
+  }
+  .badge {
+    background-color: rgb(233, 231, 231);
+    color: #111;
+  }
+}
+.icons{
+  margin: 0 4px 3px 0;
+}
