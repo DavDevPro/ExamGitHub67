@@ -17,7 +17,7 @@ import glass from "./assets/images/Dual Ring-1s-200px.png";
 import UserList from "./components/userlist/UserList";
 
 const App = () => {
-  const { repo, setRepo, user, setUser, loading, setLoading, following,setFollowing,users } = useContext(UserCreateContext);
+  const { followers, setFollowers, setRepo, user, setUser, loading, setLoading, following, setFollowing, users } = useContext(UserCreateContext);
   // const { repos, setRepos } = useContext(ReposContext);
   const username = "mukhriddin-dev";
   useEffect(() => {
@@ -39,12 +39,16 @@ const App = () => {
   useEffect(() => {
     API.getFollowing(user.login)
       .then((response) => {
-        setFollowing(response.data)
+        setFollowing(response.data);
       })
       .catch((error) => console.log(error));
 
+    API.getFollowers(user.login)
+      .then((response) => {
+        setFollowers(response.data);
+      })
+      .catch((error) => console.log(error));
   }, [user]);
-
 
   return (
     <>

@@ -8,11 +8,11 @@ import { Link } from "react-router-dom";
 import { UserCreateContext } from "../../context/UserContext";
 
 const HomePageLinks = () => {
-  const {user} = useContext(UserCreateContext)
+  const {user, repo} = useContext(UserCreateContext);
   return (
     <IconContext.Provider value={{ size: "1.5em", className: "icons" }}>
-      <div className="container-fluid border-bottom pt-3 pb-2">
-        <nav className="navbar navbar-expand-lg">
+      <div className="container-fluid border-bottom pt-3">
+        <nav className="navbar navbar-expand-lg pb-0">
           <div className="container-fluid">
             <button
               className="navbar-toggler"
@@ -36,7 +36,7 @@ const HomePageLinks = () => {
                 <li className="nav-item">
                   <Link className="nav-link" to="/repositories">
                     <VscRepo />
-                    Repositories <span className="badge rounded-pill ">12</span>
+                    Repositories <span className="badge rounded-pill ">{repo.length}</span>
                   </Link>
                 </li>
                 <li className="nav-item">

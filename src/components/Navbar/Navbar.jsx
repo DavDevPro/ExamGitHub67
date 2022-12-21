@@ -11,9 +11,9 @@ import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [value, setValue] = useState("");
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const {searchVal, user, setLoading,users,setUsers, } = useContext(UserCreateContext);
+  const { searchVal, user, setLoading, users, setUsers } = useContext(UserCreateContext);
 
   const fetchUser = (e) => {
     if (e.keyCode === 13) {
@@ -26,16 +26,13 @@ const Navbar = () => {
         })
         .catch((error) => console.log(error))
         .finally(() => setLoading(false));
-
-        navigate("/userlist")
+      setValue("");
+      navigate("/userlist");
     }
   };
 
-
-
   return (
     <div>
-    
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark p-3 ">
         <div className="container-fluid ">
           <button
@@ -49,7 +46,7 @@ const Navbar = () => {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <a className="bg-dark" href="#">
+          <a className="bg-dark" href="./">
             <img src={github} width={30} />
           </a>
           <div className="input-group input-group-sm">
