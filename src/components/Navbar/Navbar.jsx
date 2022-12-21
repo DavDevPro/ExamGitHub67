@@ -35,9 +35,7 @@ const Navbar = () => {
 
   return (
     <div>
-        {/* <input list="data" onChange={(e) => setVal(e.target.value)} placeholder="Search" /> */}
-
-        {/* <h1>{val}</h1> */}
+    
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark p-3 ">
         <div className="container-fluid ">
           <button

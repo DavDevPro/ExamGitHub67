@@ -41,7 +41,7 @@ const Repositories = () => {
       <div className="repository__list">
        {
         repo.map(item => (
-          <div className="border-top my-3 p-3 d-flex flex-row justify-content-between">
+          <div className="border-top my-3 p-3 d-flex flex-row justify-content-between" key={item.id}>
           <div className="d-flex flex-column justify-content-between">
             <a className="nav-link text-primary" href={`https://github.com/${item.full_name}`} target="_blank">
               {item.name}

@@ -37,7 +37,7 @@ const Sidebar = () => {
             </Link>
             <span> · </span>
             <Link to="/following" >
-              <button onClick={() =>  followingHandler(user.login)}>
+              <button className="following__btn" onClick={() =>  followingHandler(user.login)}>
               <span>{user.following}</span> following
               </button>
             </Link>

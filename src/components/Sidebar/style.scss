@@ -1,4 +1,4 @@
-.sidebar{
+.sidebar {
   transform: translateY(-25px);
 }
 .profile__img {
@@ -29,6 +29,13 @@
     }
   }
 }
-.bio p{
+.bio p {
   margin: 0;
+}
+.following__btn {
+  border: none;
+  background-color: transparent;
+  &:hover{
+    color: #0969da;
+  }
 }
