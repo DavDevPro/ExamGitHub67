@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
 import { VscRepo } from "react-icons/vsc";
 import { BsStar } from "react-icons/bs";
-import "./style.scss";
 import { UserCreateContext } from "../../context/UserContext";
+import "./style.scss";
 
 const Repositories = () => {
   const { repo } = useContext(UserCreateContext);
+
   return (
     <div>
       <div className="repository__bar row my-3">
@@ -39,50 +40,82 @@ const Repositories = () => {
       </div>
 
       <div className="repository__list">
-       {
-        repo.map(item => (
-          <div className="border-top my-3 p-3 d-flex flex-row justify-content-between" key={item.id}>
-          <div className="d-flex flex-column justify-content-between">
-            <a className="nav-link text-primary" href={`https://github.com/${item.full_name}`} target="_blank">
-              {item.name}
-              <span className="ms-3 badge rounded-pill text-bg-light border">Public</span>
-            </a>
-            <p className="text__sm mb-0 mt-3 text-muted">Updated yesterday</p>
-          </div>
-          <div>
-            <div className="btn-group btn-group-sm" role="group" aria-label="Button group with nested dropdown">
-              <button type="button" className="btn btn-light ">
-                <BsStar className="star" /> Star
-              </button>
+        {repo.map((item) => (
+          <div className="border-top py-3 d-flex flex-row justify-content-between" key={item.id}>
+            <div className="d-flex flex-column justify-content-between">
+              <a className="nav-link text-primary fs-6" href={`https://github.com/${item.full_name}`} target="_blank">
+                {item.name}
+                <span className="ms-3 badge rounded-pill bg-white text-muted border text-capitalize">{item.visibility}</span>
+              </a>
 
-              <div className="btn-group btn-group-sm" role="group">
-                <button type="button" className="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"></button>
-                <ul className="dropdown-menu">
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      <input className="me-2" type="checkbox" name="" id="" />
-                      Future ideas
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      <input className="me-2" type="checkbox" name="" id="" />
-                      My stack
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      <input className="me-2" type="checkbox" name="" id="" />
-                      Inspiration
-                    </a>
-                  </li>
-                </ul>
+              <p className="text__sm mb-0 my-1 text-muted">{item.description}</p>
+              <p className=" mb-0 mt-3 me-3">
+                {item.language && (
+                  <>
+                    <span
+                      className={`circle ${
+                        item.language === "HTML"
+                          ? "orange"
+                          : item.language === "CSS"
+                          ? "purple"
+                          : item.language === "JavaScript"
+                          ? "yellow"
+                          : item.language === "TypeScript"
+                          ? "blue"
+                          : "pink"
+                      }`}
+                    ></span>
+                    <span className="me-3">{item.language}</span>
+                  </>
+                )}
+                {item.stargazers_count && (
+                  <span className="text__sm">
+                    <BsStar className="star" /> {item.stargazers_count}
+                  </span>
+                )}
+                {item.updated_at && (
+                  <span className="text__sm--12 ms-3">Updated on {item.updated_at}</span>
+                )}
+              </p>
+            </div>
+
+            <div>
+              <div className="this__button btn-group btn-group-sm border" role="group" aria-label="Button group with nested dropdown">
+                <div className="btn-group btn-group-sm" role="group">
+                  <button type="button" className="btn btn-light px-3 py-0 ">
+                    <BsStar className="star" /> Star
+                  </button>
+                  <button
+                    type="button"
+                    className="btn btn-light border-start dropdown-toggle"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  ></button>
+                  <ul className="dropdown-menu">
+                    <li>
+                      <a className="dropdown-item" href="#">
+                        <input className="me-2" type="checkbox" name="" id="" />
+                        Future ideas
+                      </a>
+                    </li>
+                    <li>
+                      <a className="dropdown-item" href="#">
+                        <input className="me-2" type="checkbox" name="" id="" />
+                        My stack
+                      </a>
+                    </li>
+                    <li>
+                      <a className="dropdown-item" href="#">
+                        <input className="me-2" type="checkbox" name="" id="" />
+                        Inspiration
+                      </a>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
-        </div> 
-        ))
-       }    
+        ))}
       </div>
     </div>
   );

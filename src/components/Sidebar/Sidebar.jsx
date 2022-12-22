@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { UserCreateContext } from "../../context/UserContext";
-import "./style.scss";
 import { BsPeople } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { HiOutlineOfficeBuilding } from "react-icons/hi";
@@ -8,9 +7,10 @@ import { GoLocation } from "react-icons/go";
 import { BsTwitter } from "react-icons/bs";
 import { CiMail } from "react-icons/ci";
 import API from "../../API/API";
+import "./style.scss";
 
 const Sidebar = () => {
-  const { setFollowing,user } = useContext(UserCreateContext);
+  const { setFollowing, user } = useContext(UserCreateContext);
   const followingHandler = (e) => {
     API.getFollowing(e)
       .then((response) => {
@@ -18,7 +18,7 @@ const Sidebar = () => {
       })
       .catch((error) => console.log(error));
   };
-
+console.log(user);
   return (
     <div className="sidebar">
       <img src={user.avatar_url} className="profile__img rounded-circle" />
@@ -28,7 +28,6 @@ const Sidebar = () => {
         <button className="edit__btn btn btn-sm btn-outline-secondary bg-light shadow-sm fw-semibold w-100 mx-auto text-dark mb-2">
           Edit Profile
         </button>
-        {/* {user.bio && <p>{user.bio}</p>} */}
         <div className="bio">
           <p>{user.bio}</p>
           <p className="followers my-3">

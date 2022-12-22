@@ -5,7 +5,7 @@ import { HiOutlineOfficeBuilding } from "react-icons/hi";
 import { GoLocation } from "react-icons/go";
 
 const Followers = () => {
-  const { followers, setFollowers } = useContext(UserCreateContext);
+  const { followers } = useContext(UserCreateContext);
   return (
     <div>
       {followers ? (
@@ -27,7 +27,7 @@ const Followers = () => {
               </div>
             </div>
             <button type="button" className="btn btn-light border btn-sm">
-              Unfollow
+              Follow
             </button>
           </div>
         ))

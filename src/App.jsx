@@ -12,13 +12,11 @@ import Followers from "./pages/Followers/Followers";
 import Following from "./pages/Following/Following";
 import API from "./API/API";
 import { UserCreateContext } from "./context/UserContext";
-// import { ReposContext } from "./context/ReposContext";
 import glass from "./assets/images/Dual Ring-1s-200px.png";
 import UserList from "./components/userlist/UserList";
 
 const App = () => {
-  const { followers, setFollowers, setRepo, user, setUser, loading, setLoading, following, setFollowing, users } = useContext(UserCreateContext);
-  // const { repos, setRepos } = useContext(ReposContext);
+  const { setFollowers, setRepo, user, setUser, loading, setLoading, following, setFollowing, users } = useContext(UserCreateContext);
   const username = "mukhriddin-dev";
   useEffect(() => {
     setLoading(true);

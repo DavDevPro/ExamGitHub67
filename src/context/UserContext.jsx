@@ -11,7 +11,9 @@ const UserProvider = ({ children }) => {
   const [users, setUsers] = useState([]);
 
   return (
-    <UserCreateContext.Provider value={{ users, setUsers, repo, setRepo, user, setUser, loading, setLoading, followers, setFollowers, following, setFollowing }}>
+    <UserCreateContext.Provider
+      value={{ users, setUsers, repo, setRepo, user, setUser, loading, setLoading, followers, setFollowers, following, setFollowing }}
+    >
       {children}
     </UserCreateContext.Provider>
   );

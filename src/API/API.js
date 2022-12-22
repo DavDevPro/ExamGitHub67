@@ -1,5 +1,4 @@
 import axios from "axios";
-import { useEffect } from "react";
 
 const searchURL = "https://api.github.com/search/users?q=";
 const baseURL = "https://api.github.com/users/";

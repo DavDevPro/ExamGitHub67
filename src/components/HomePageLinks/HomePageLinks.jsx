@@ -11,8 +11,8 @@ const HomePageLinks = () => {
   const {user, repo} = useContext(UserCreateContext);
   return (
     <IconContext.Provider value={{ size: "1.5em", className: "icons" }}>
-      <div className="container-fluid border-bottom pt-3">
-        <nav className="navbar navbar-expand-lg pb-0">
+      <div className="container-fluid border-bottom">
+        <nav className="navbar navbar-expand-lg pb-0 pt-3">
           <div className="container-fluid">
             <button
               className="navbar-toggler"
@@ -29,30 +29,29 @@ const HomePageLinks = () => {
               <ul className="home__page--menu navbar-nav mx-auto">
                 <li className="nav-item">
                   <Link className="nav-link active" aria-current="page" to={`/${user.login}`}>
-                    <BsBook />
-                    Overview
+                    <span> <BsBook /> Overview</span>
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/repositories">
-                    <VscRepo />
-                    Repositories <span className="badge rounded-pill ">{repo.length}</span>
+                    <span><VscRepo />
+                    Repositories <span className="badge rounded-pill ">{repo.length}</span></span>
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/projects">
-                    <BsReverseLayoutTextWindowReverse />
-                    Projects
+                    <span><BsReverseLayoutTextWindowReverse />
+                    Projects</span>
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/packages">
-                    <TfiPackage /> Packages
+                    <span><TfiPackage /> Packages</span>
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/stars">
-                    <BsStar /> Stars <span className="badge rounded-pill ">1</span>
+                    <span><BsStar /> Stars <span className="badge rounded-pill ">1</span></span>
                   </Link>
                 </li>
               </ul>

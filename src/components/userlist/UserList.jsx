@@ -29,10 +29,6 @@ const UserList = ({ users }) => {
           <h4 className="text-center mt-5 text-danger">No user found! </h4>
           <p className="text-center text-muted">Please, enter an existing username!</p>
         </div>
-
-        // useEffect(() => {
-        //   navigate(`/${user.login}`);
-        // }, [])
       )}
     </>
   );

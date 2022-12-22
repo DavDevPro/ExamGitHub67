@@ -1,10 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import { HiOutlineOfficeBuilding } from "react-icons/hi";
 import { GoLocation } from "react-icons/go";
-import { UserCreateContext } from "../../context/UserContext";
 
 const Following = ({ following }) => {
-  const { user } = useContext(UserCreateContext);
 
   console.log(following);
   return (

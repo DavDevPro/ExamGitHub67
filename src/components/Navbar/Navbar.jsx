@@ -1,6 +1,5 @@
 import React, { useContext, useRef, useState } from "react";
 import github from "./../../assets/images/github-logo1-modified.png";
-import profilePhoto from "./../../assets/images/profile-photo.png";
 import { FaSortDown } from "react-icons/fa";
 import { BsBell } from "react-icons/bs";
 import { GoPlusSmall } from "react-icons/go";
@@ -21,8 +20,6 @@ const Navbar = () => {
       API.getSearchUser(value)
         .then((response) => {
           setUsers(response.data.items);
-          console.log(response.data);
-          // setUser(response.data);
         })
         .catch((error) => console.log(error))
         .finally(() => setLoading(false));
@@ -58,7 +55,6 @@ const Navbar = () => {
               value={value}
               onChange={(e) => setValue(e.target.value)}
               onKeyDown={fetchUser}
-              // onChange={(e) => setSearchVal(e.target.value)}
             />
             <span className="input-group-text border border-secondary bg-dark text-secondary">/</span>
           </div>
