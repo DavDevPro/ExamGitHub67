@@ -18,7 +18,7 @@ const Sidebar = () => {
       })
       .catch((error) => console.log(error));
   };
-console.log(user);
+
   return (
     <div className="sidebar">
       <img src={user.avatar_url} className="profile__img rounded-circle" />

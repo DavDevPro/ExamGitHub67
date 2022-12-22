@@ -1,15 +1,22 @@
 import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import API from "../../API/API";
 import { UserCreateContext } from "../../context/UserContext";
 import "./style.scss";
 
-const UserList = ({ users }) => {
-  const { setUser, user } = useContext(UserCreateContext);
-  console.log(user.login);
+const UserList = () => {
+  const { setUser,users,setLoading } = useContext(UserCreateContext);
+  console.log(users);
   const navigate = useNavigate();
 
   const userHandler = (user) => {
-    setUser(user);
+    setLoading(true);
+    API.getUser(user.login)
+    .then((response) => {
+      setUser(response.data);
+    })
+    .catch((error) => console.log(error))
+    .finally(() => setLoading(false));
     navigate("/");
   };
   return (
